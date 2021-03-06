@@ -1,0 +1,26 @@
+{
+  "heading": {
+    "lottery": "Will you win the lottery?",
+    "rain": "Will it rain tomorrow?",
+    "mother": "Does your mother love you?"
+  },
+  "subheading": "Ask me and I will give you all your answers!",
+  "questionPlaceholder": "Your question here",
+  "buttons": {
+    "submit": "Submit",
+    "askAgain": "New question!",
+    "shakeAgain": "Shake again!"
+  },
+  "answerOptions": {
+    "0": "Of course",
+    "1": "No optimism",
+    "2": "Not a chance",
+    "3": "Yes!",
+    "4": "No!",
+    "5": "Maaaybe",
+    "6": "Don't be silly",
+    "7": "Forget it!",
+    "8": "1000x yes!",
+    "9": "Sure thing!"
+  }
+}
