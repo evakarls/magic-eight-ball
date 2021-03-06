@@ -1,15 +1,13 @@
 <template>
-  <div class="flex justfiy-center items-center rounded-full w-96 h-96 ball">
-    <div class=" flex items-center ml-28 outer-circle rounded-full w-40 h-40">
-      <div class="flex items-center justify-center bg-black rounded-full w-full h-full m-1 owerflow-hidden">
+  <div class="flex justfiy-center items-center rounded-full w-84 h-84 md:w-96 md:h-96 border-gray-900 border-4 ball">
+    <div class="flex items-center justify-center ml-28 outer-circle rounded-full w-36 h-36 md:w-40 md:h-40">
+      <div class="flex items-center justify-center bg-black rounded-full w-30 h-30 md:w-34 md:h-34 p-1 owerflow-hidden">
          <transition name="fade-in">
           <div
             v-if="selectedAnswer"
-            class="answer-card"
+            class="relative mt-4 max-h-0 answer-card"
             :key="selectedAnswer">
-            <div
-            id="answer">{{ selectedAnswer }}
-            </div>
+            <div class="font-jura text-answer-blue w-14 h-14 pt-1 absolute -top-18 -left-7 text-xs text-center overflow-hidden answer">{{ selectedAnswer }}</div>
           </div>
         </transition>
       </div>
@@ -31,9 +29,8 @@ export default {
   },
   data () {
     return {
-      answered: false,
       selectedAnswer: null,
-      answers: [
+      answerOptions: [
         { id: 1, label: "Auðvitað" },
         { id: 2, label: "Enga bjartsýni"},
         { id: 3, label: "Ekki séns" },
@@ -41,14 +38,16 @@ export default {
         { id: 5, label: "Nei!" },
         { id: 6, label: "Mögulega" },
         { id: 7, label: "Ekki vera kjáni" },
-        { id: 8, label: "Gleymdu því!" }
+        { id: 8, label: "Gleymdu því!" },
+        { id: 9, label: "Þúsund sinnum já!" },
+        { id: 10, label: "Klárt mál!" }
       ]
     }
   },
 
   methods: {
     generateRandomIndex () {
-      return Math.floor(Math.random() * Math.floor(this.answers.length))
+      return Math.floor(Math.random() * Math.floor(this.answerOptions.length))
     }
   },
 
@@ -56,14 +55,14 @@ export default {
     questionAsked: {
       handler (val) {
         if (!val) return this.selectedAnswer = null
-        this.selectedAnswer = this.answers[this.generateRandomIndex()].label
+        this.selectedAnswer = this.answerOptions[this.generateRandomIndex()].label
       }
     },
 
     shakeAgain: {
       handler () {
-        this.selectedAnswer = false
-        this.selectedAnswer = this.answers[this.generateRandomIndex()].label
+        this.selectedAnswer = null
+        this.selectedAnswer = this.answerOptions[this.generateRandomIndex()].label
       }
     }
   }
@@ -72,20 +71,15 @@ export default {
 
 <style scoped>
 .ball {
-  /* display: flex;
-  justify-content: center;
-  border-radius: 50%;
-  width: 450px;
-  height: 450px; */
   position: relative;
   background: radial-gradient(circle at 80% 90%,  #0a0a0a 80%, #323232, #000000 100%);
-  box-shadow:inset -20px -20px 20px 2px #222, inset 20px 20px 20px 5px rgba(53, 53, 53, 0.4), inset -5px -5px 5px 2px rgb(198, 198, 198);
+  box-shadow:inset -20px -20px 20px 2px rgb(21, 21, 21), inset -5px -5px 5px 2px rgb(96, 96, 96);
 }
 .ball:before {
   content: "";
   position: absolute;
-  background: radial-gradient(circle at 20% 70%,  rgba(123, 123, 123, 0.45), rgba(123, 123, 123, 0) 60%);
-  box-shadow:inset -20px -20px 20px 2px #222, inset 20px 20px 20px 5px rgba(53, 53, 53, 0.4);
+  background: radial-gradient(circle at 70% 70%,  rgba(94, 94, 94, 0.45), rgba(69, 69, 69, 0) 60%);
+  box-shadow:inset -20px -20px 20px 5px #222, inset 20px 20px 20px 5px rgba(58, 58, 58, 0.4);
   border-radius: 50%;
   bottom: 2.5%;
   left: 5%;
@@ -97,46 +91,24 @@ export default {
 }
 
 .outer-circle {
-  /* width: 40%;
-  height: 40%;
-  margin-top: 50px;
-  border-radius: 50%;
-  background: #0a0a0a; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   background: radial-gradient(circle at 160% 50%,  rgba(225, 225, 225, 0.4), rgba(230, 230, 230, 0) 60%);
   box-shadow:inset -1px -1px 1px 1px rgb(22, 22, 22), inset 1px 1px 1px 1px rgba(19, 19, 19, 0.4);
 }
 
 .inner-circle {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  /* width: 90%;
-  height: 90%;
-  border-radius: 50%;
-  background-color: black;
-  overflow: hidden; */
   box-shadow:inset -1px -1px 1px 1px rgb(24, 24, 24), inset 1px 1px 1px 1px rgba(24, 24, 24, 0.4);
 }
 
 .answer-card {
-  margin-top: 10px;
-  max-height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-top: 100px solid rgba(18, 18, 213, 0.8);
-  position: relative;
-  font-size: 10px;
-  color: rgb(90, 206, 255);
-  /* overflow: hidden; */
+  border-left: 3rem solid transparent;
+  border-right: 3rem solid transparent;
+  border-top: 4.8rem solid rgba(18, 18, 213);
   -webkit-filter: drop-shadow(2px 2px 4px rgb(208, 209, 245));
   filter: drop-shadow(1px 1px 4px rgb(134, 140, 255));
 }
 
 .fade-in-enter-active {
-  transition: all 1.8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
 .fade-in-leave-active {
@@ -151,17 +123,8 @@ export default {
   opacity: 0
 }
 
-#answer {
-  width: 80px;
-  height: 60px;
-  position: absolute;
-  font-family: Jura;
-  font-size: 1rem;
-  text-align: center;
+.answer {
   text-shadow: 1px 1px #b5c6ff;
-  overflow: hidden;
-  top: -100px;
-  left: -42px;
 }
 
 </style>

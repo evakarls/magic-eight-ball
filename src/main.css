@@ -4,7 +4,19 @@
 
 @layer base {
   button {
-    @apply  font-custom text-black font-bold h-12 px-4 rounded focus:ring-2 ring-offset-2 focus:ring-blue-500 hover:shadow cursor-pointer bg-white;
+    @apply  font-custom text-black font-bold h-12 px-4 rounded hover:shadow cursor-pointer bg-white;
+  },
+
+  body {
+    @apply bg-galaxy bg-center bg-repeat bg-cover;
+  },
+
+  h1 {
+    @apply text-2xl font-custom md:text-5xl my-10 text-white;
+  },
+
+  h2 {
+    @apply text-base font-custom md:text-2xl my-10 text-white;
   }
 }
 
