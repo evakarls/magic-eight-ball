@@ -11,11 +11,11 @@
     <div class="w-full flex flex-col-reverse md:flex-row md:justify-around py-8 text-center">
       <div class="flex flex-col-reverse md:flex-col text-left w-full md:w-1/2 mb-8">
         <div>
-          <h1>{{ $t('heading.lottery') }} {{ $t('heading.rain') }} {{ $t('heading.mother') }}</h1>
+          <h1>{{ $t('heading') }}</h1>
           <h2>{{ $t("subheading") }}</h2>
         </div>
         <div
-          class="flex flex-wrap items-center"
+          class="flex flex-wrap items-center my-8"
           v-if="!questionAsked">
           <input
             v-model="question"

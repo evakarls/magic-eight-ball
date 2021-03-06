@@ -1,9 +1,5 @@
 {
-  "heading": {
-    "lottery": "Munt þú vinna í lottó?",
-    "rain": "Verður rigning á morgun?",
-    "mother": "Elskar mamma þín þig?"
-  },
+  "heading": "Munt þú vinna í lottó? Verður rigning á morgun? Elskar mamma þín þig?",
   "subheading": "Spyrðu mig og ég mun segja þér allt!",
   "questionPlaceholder": "Spyrðu mig hér",
   "buttons": {

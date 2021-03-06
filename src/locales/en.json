@@ -1,9 +1,5 @@
 {
-  "heading": {
-    "lottery": "Will you win the lottery?",
-    "rain": "Will it rain tomorrow?",
-    "mother": "Does your mother love you?"
-  },
+  "heading": "Will you win the lottery? Will it rain tomorrow? Does your mother love you?",
   "subheading": "Ask me and I will give you all your answers!",
   "questionPlaceholder": "Your question here",
   "buttons": {
