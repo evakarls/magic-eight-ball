@@ -1,4 +1,4 @@
-# :8ball: magic eight ball
+# :8ball: Magic eight ball
 Are you not sure what to do with your life? Is your head filled with questions that you just NEED to have answered? You're in luck! The magic eight ball is here to guide the way.
 
 ## DEMO
@@ -18,7 +18,7 @@ The app is fully responsive so you can ask questions about your future in style 
 ## About the project
 Built with [Vue.js](https://vuejs.org/) and [Vue cli](https://cli.vuejs.org/). The project utilises [Tailwind](https://tailwindcss.com/) vue as a CSS framework but relies on postcss for certain css features which are not yet available in Tailwind (mainly pseudo classes and styling triangles :small_red_triangle_down:).
 
-[i18n library](https://kazupon.github.io/vue-i18n/) is included for an easy integration of multiple languages. Translations are currently included for English and Icelandic (a great opportunity for you to learn some Icelandic words if you don't know any! :slightly_smiling_fac
+[i18n library](https://kazupon.github.io/vue-i18n/) is included for an easy integration of multiple languages. Translations are currently included for English and Icelandic (a great opportunity for you to learn some Icelandic words if you don't know any! :slightly_smiling_face:
 
 ## Project setup
 ```
