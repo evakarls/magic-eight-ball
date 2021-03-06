@@ -1,35 +1,43 @@
 <template>
-  <div class="w-full flex flex-col-reverse md:flex-row md:justify-around py-10 px-4 text-center">
-      <div class="text-left w-full md:w-1/2 mb-8">
-        <h1>
-          Munt þú vinna í lottó?<br>
-          Verður rigning á morgun?<br>
-          Elskar mamma þín þig?
-        </h1>
-        <h2>Spyrðu mig og ég mun segja þér allt!</h2>
+  <div class="m-8">
+    <div class="w-full flex justify-end">
+      <div class="rounded w-22 bg-white cursor-pointer font-custom text-xs p-2 mb-8">
+        <select v-model="$i18n.locale">
+          <option value="en">Eng</option>
+          <option value="is">Ísl</option>
+        </select>
+      </div>
+    </div>
+    <div class="w-full flex flex-col-reverse md:flex-row md:justify-around py-8 text-center">
+      <div class="flex flex-col-reverse md:flex-col text-left w-full md:w-1/2 mb-8">
+        <div>
+          <h1>{{ $t('heading.lottery') }} {{ $t('heading.rain') }} {{ $t('heading.mother') }}</h1>
+          <h2>{{ $t("subheading") }}</h2>
+        </div>
         <div
           class="flex flex-wrap items-center"
           v-if="!questionAsked">
           <input
             v-model="question"
+            :placeholder="$t('questionPlaceholder')"
             class="font-custom rounded h-12 w-full md:w-4/5 md:mr-4 p-4 my-4">
           <button
-            class="font-custom w-1/2 md:w-1/6"
+            class="font-custom w-2/3 md:w-1/6"
             @click="submitQuestion"
             :disabled="!question.length">
-            Senda
+            {{ $t('buttons.submit') }}
           </button>
         </div>
-        <div v-else class="flex w-full flex-wrap">
+        <div v-else class="flex w-full flex-wrap my-8">
           <button
             class="w-full md:w-2/5 md:mr-4 my-2"
             @click="submitShakeAgain">
-              Glatað svar! Hrista aftur!
+              {{ $t('buttons.shakeAgain') }}
             </button>
           <button
             class="w-full md:w-2/5 my-2"
             @click="questionAsked = !questionAsked">
-              Nýja spurningu, takk!
+              {{ $t('buttons.askAgain') }}
             </button>
         </div>
       </div>
@@ -38,6 +46,7 @@
         :class="shaking ? 'shake' : ''"
         :question-asked="questionAsked"
         :shake-again="shakeAgain"/>
+    </div>
   </div>
 </template>
 

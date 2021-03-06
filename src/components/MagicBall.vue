@@ -48,6 +48,11 @@ export default {
   methods: {
     generateRandomIndex () {
       return Math.floor(Math.random() * Math.floor(this.answerOptions.length))
+    },
+
+    setAnswer () {
+      this.selectedAnswer = null
+      this.selectedAnswer = this.$t(`answerOptions.${this.generateRandomIndex()}`)
     }
   },
 
@@ -55,14 +60,13 @@ export default {
     questionAsked: {
       handler (val) {
         if (!val) return this.selectedAnswer = null
-        this.selectedAnswer = this.answerOptions[this.generateRandomIndex()].label
+        this.setAnswer()
       }
     },
 
     shakeAgain: {
       handler () {
-        this.selectedAnswer = null
-        this.selectedAnswer = this.answerOptions[this.generateRandomIndex()].label
+        this.setAnswer()
       }
     }
   }

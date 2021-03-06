@@ -1,0 +1,26 @@
+{
+  "heading": {
+    "lottery": "Munt þú vinna í lottó?",
+    "rain": "Verður rigning á morgun?",
+    "mother": "Elskar mamma þín þig?"
+  },
+  "subheading": "Spyrðu mig og ég mun segja þér allt!",
+  "questionPlaceholder": "Spyrðu mig hér",
+  "buttons": {
+    "submit": "Senda",
+    "askAgain": "Nýja spurningu!",
+    "shakeAgain": "Hrista aftur!"
+  },
+  "answerOptions": {
+    "0": "Auðvitað",
+    "1": "Enga bjartsýni",
+    "2": "Ekki séns",
+    "3": "Já!",
+    "4": "Nei!",
+    "5": "Mögulega",
+    "6": "Ekki vera kjáni",
+    "7": "Gleymdu því!",
+    "8": "Þúsund sinnum já!",
+    "9": "Klárt mál!"
+  }
+}
